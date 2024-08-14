@@ -1,0 +1,3 @@
+# The Styx Book
+
+This book aims to give users wanting to use Styx for the first time or blabla...
