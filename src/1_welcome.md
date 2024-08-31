@@ -2,7 +2,7 @@
 
 Welcome! This book is aimed at
 - new users wanting to use Styx [for the first time](./2_getting_started.md)
-- advanced users wanting to [create custom ways to execute Styx](./3_advanced_concepts.md)
+- advanced users wanting to [create custom ways to deploy Styx](./3_advanced_concepts.md)
 
 > [!IMPORTANT]  
 > If you instead found a bug in NiWrap interface, head to the [NiWrap issue tracker](https://github.com/childmindresearch/niwrap/issues).
