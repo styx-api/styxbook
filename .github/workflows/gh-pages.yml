@@ -41,7 +41,7 @@ jobs:
         with:
           path: target
           key: ${{ runner.os }}-cargo-build-target-${{ hashFiles('**/Cargo.lock') }}
-      - name: Install mdbook and admonis plugin
+      - name: Install mdbook and preprocessors
         uses: actions-rs/cargo@v1
         with:
           command: install
@@ -50,7 +50,6 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build Book
         run: |
-          mdbook-alerts install ./
           mdbook build
           touch ./book/.nojekyll
       - name: Upload artifact
