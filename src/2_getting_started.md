@@ -6,7 +6,7 @@
 To get started install the [NiWrap](https://github.com/childmindresearch/niwrap/tree/main) Python package:
 
 ```sh
-pip install niwrap
+pip install niwrap styxdocker styxsingularity
 ```
 
 From there on running commands will be as easy as:
