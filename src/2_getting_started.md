@@ -6,7 +6,7 @@
 To get started install the [NiWrap](https://github.com/childmindresearch/niwrap/tree/main) Python package:
 
 ```sh
-pip install -e "git+https://github.com/childmindresearch/niwrap.git/#egg=niwrap&subdirectory=python"
+pip install niwrap
 ```
 
 From there on running commands will be as easy as:
