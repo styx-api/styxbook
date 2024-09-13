@@ -5,6 +5,7 @@
     - [Runners](./getting_started/runners.md)
     - [I/O: Where are my files?](./getting_started/io.md)
     - [Tips & best practices](./getting_started/tips_best_practices.md)
+    - [Styx on HPC clusters](./getting_started/hpc.md)
     - [Contributing to NiWrap](./getting_started/contributing_to_niwrap.md)
 - [Advanced concepts](./advanced_concepts/README.md)
     - [Writing custom runners](./advanced_concepts/custom_runners.md)
