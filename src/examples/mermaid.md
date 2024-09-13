@@ -1,0 +1,1 @@
+# Example: Generate mermaid graph

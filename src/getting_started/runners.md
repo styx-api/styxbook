@@ -11,6 +11,7 @@ While this might be good for debugging, other users might want to control where 
 There are a of number official runners:
 
 - `styxdefs.LocalRunner` - This is the default Runner. It executes commands locally.
+- `styxdefs.DummyRunner` - ?
 - [`styxdocker.DockerRunner`](https://github.com/childmindresearch/styxdocker) - This Runner executes every command in a Docker container.
 - [`styxsingularity.SingularityRunner`](https://github.com/childmindresearch/styxsingularity) - This Runner executes every command in an Apptainer/Singularity container.
 - [`styxgraph.GraphRunner`](https://github.com/childmindresearch/styxgraph) - This is a special Runner - it captures information about how your commands are connected and returns a diagram.
