@@ -6,3 +6,11 @@ src = "src"
 title = "Styx Book"
 
 [preprocessor.alerts]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output]
+
+[output.html]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
