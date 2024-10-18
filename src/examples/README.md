@@ -7,4 +7,4 @@
 
 ## Styx in the wild
 
-- Link to Jason's NHP pipeline
+- [Non-human primate diffusion processing](https://github.com/HumanBrainED/nhp-dwiproc)
