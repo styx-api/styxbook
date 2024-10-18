@@ -4,17 +4,18 @@ _Runners_ define how commands will be executed and how output files will be stor
 
 By default they will be executed with the system shell and outputs will be stored in a folder named `styx_temp/` in the current working directory.
 
-While this might be good for debugging, other users might want to control where data gets stored and might not have all the software packages installed so the first step before packaging and deploying a pipeline will be to modify this behaviour.
+While this provides a good start, users may want more control where the data gets store or might not have all the software dependencies installed.
+The first step before packaging and deploying a pipeline should be to modify this behavior.
 
 ## Official Runners
 
 There are a of number official runners:
 
-- `styxdefs.LocalRunner` - This is the default Runner. It executes commands locally.
-- `styxdefs.DummyRunner` - ?
-- [`styxdocker.DockerRunner`](https://github.com/childmindresearch/styxdocker) - This Runner executes every command in a Docker container.
-- [`styxsingularity.SingularityRunner`](https://github.com/childmindresearch/styxsingularity) - This Runner executes every command in an Apptainer/Singularity container.
-- [`styxgraph.GraphRunner`](https://github.com/childmindresearch/styxgraph) - This is a special Runner - it captures information about how your commands are connected and returns a diagram.
+- `styxdefs.LocalRunner` - This is the default Runner. It executes commands locally using the system shell.
+- `styxdefs.DummyRunner` - This Runner dry-runs commands, useful when writing new wrappers to ensure commands are as expected.
+- [`styxdocker.DockerRunner`](https://github.com/childmindresearch/styxdocker) - This Runner executes commands in a Docker container.
+- [`styxsingularity.SingularityRunner`](https://github.com/childmindresearch/styxsingularity) - This Runner executes commands in an Apptainer/Singularity container.
+- [`styxgraph.GraphRunner`](https://github.com/childmindresearch/styxgraph) - This is a special Runner, capturing information about how commands are connected, returning a diagram.
 
 ## Setting up a Runner
 
@@ -23,20 +24,21 @@ If you for example want to change where the LocalRunner stores data, we create a
 ```Python
 from styxdefs import set_global_runner, LocalRunner
 
-set_global_runner(LocalRunner(
-    data_dir="some/folder/",
-))
+my_runner = LocalRunner()
+my_runner.data_dir = "/some/folder"
+set_global_runner(my_runner)
 
 # Now you can use any Styx functions as usual
 ```
 
-The same way we can set up any other Runner:
+The same method can be used to set up other Runners:
 
 ```Python
 from styxdefs import set_global_runner
 from styxdocker import DockerRunner
 
-set_global_runner(DockerRunner())
+my_runner = DockerRunner()
+set_global_runner(my_runner)
 
 # Now you can use any Styx functions as usual
 ```
@@ -47,14 +49,14 @@ set_global_runner(DockerRunner())
 > [!TIP]  
 > For most users, configuring the global Runner once at the beginning of their script should be all they ever need.
 
-Alternatively, if, for some reason, we want one specific function to be executed with a different Runner and not modify the global one, we just pass it as an argument:
+Alternatively, if a specific function should be executed with a different Runner without modifying the global Runner, we can pass it as an argument to the wrapped command:
 
 ```Python
-my_special_runner = DockerRunner()
+my_other_runner = DockerRunner()
 
 fsl.bet(
     infile="my_file.nii.gz",
-    runner=my_special_runner,
+    runner=my_other_runner,
 )
 
 # Now you can use any Styx functions as usual
@@ -62,14 +64,14 @@ fsl.bet(
 
 ## Middleware Runners
 
-Middleware Runners are special runners that can be used on top of other runners. So far there is one official runner, the GraphRunner, which captures how commands are connected to create a diagram:
+Middleware Runners are special runners that can be used on top of other runners. Currently, the GraphRunner, which creates a diagram by capturing how commands are connected, is the only official runner:
 
 ```Python
 from styxdefs import set_global_runner, get_global_runner
 from styxgraph import GraphRunner
 
-set_global_runner(DockerRunner())  # (Optional) Use any Styx runner like usual
-set_global_runner(GraphRunner(get_global_runner()))  # Use GraphRunner middleware
+my_runner = DockerRunner()
+set_global_runner(GraphRunner(my_runner))  # Use GraphRunner middleware
 
 # Use any Styx functions as usual
 # ...
