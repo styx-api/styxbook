@@ -37,3 +37,12 @@ set_global_runner(my_runner)
 # Get and use the logger
 logger = logging.getLogger(my_runner.logger_name)
 ```
+
+## Environment variables in runners
+
+Environment variables can be passed onto the runners. These can be passed to via
+the `environ` attribute as a dictionary.
+
+```Python
+my_runner.environ = {"VARIABLE": str(variable_value)}
+```
