@@ -20,3 +20,20 @@ shutil.copy2(task_output.out_files, "/some/permanent/output/folder")
 # Remove temporary directory for cleanup
 shutil.rmtree(runner.data_dir) 
 ```
+
+## Workflow logging
+
+All official runners have a logger available. To avoid having to setup a new (custom)
+logger, the runner's logger can be used.
+
+```Python
+import logging
+
+from styxdefs import set_global_runner, LocalRunner
+
+my_runner = LocalRunner()
+set_global_runner(my_runner)
+
+# Get and use the logger
+logger = logging.getLogger(my_runner.logger_name)
+```
