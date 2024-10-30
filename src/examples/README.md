@@ -2,8 +2,7 @@
 
 ## Short examples
 
-- Anatomical preproc
-- ?
+- [Anatomical preproc](./anat_preproc.md)
 
 ## Styx in the wild
 
