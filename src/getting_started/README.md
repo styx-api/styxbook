@@ -4,7 +4,7 @@
 > The examples in this book uses Styx wrappers from the NiWrap package.
 > Styx wrappers will work the same way for other (custom) wrappers. -->
 
-To get started install the [NiWrap](https://github.com/childmindresearch/niwrap/tree/main) Python package. Let's also install the Docker integration so you don't have to worry about installing any software dependencies.
+To get started install the [NiWrap](https://github.com/styx-api/niwrap/tree/main) Python package. Let's also install the Docker integration so you don't have to worry about installing any software dependencies.
 
 ```sh
 pip install niwrap styxdocker

@@ -6,7 +6,7 @@ Welcome! This book is aimed at
 - advanced users wanting to [create custom ways to deploy Styx](./advanced_concepts/)
 
 > [!IMPORTANT]  
-> If you found a bug in the NiWrap interface, head to the [NiWrap issue tracker](https://github.com/childmindresearch/niwrap/issues).
+> If you found a bug in the NiWrap interface, head to the [NiWrap issue tracker](https://github.com/styx-api/niwrap/issues).
 
 > [!NOTE]  
-> If you want to get involved with Styx compiler development, or use Styx to generate code, head over to [the Styx compiler repo](https://github.com/childmindresearch/styx).
+> If you want to get involved with Styx compiler development, or use Styx to generate code, head over to [the Styx compiler repo](https://github.com/styx-api/styx).

@@ -13,9 +13,9 @@ There are a of number official runners:
 
 - `styxdefs.LocalRunner` - This is the default Runner. It executes commands locally using the system shell.
 - `styxdefs.DryRunner` - This Runner dry-runs commands, useful when writing new wrappers to ensure commands are as expected.
-- [`styxdocker.DockerRunner`](https://github.com/childmindresearch/styxdocker) - This Runner executes commands in a Docker container.
-- [`styxsingularity.SingularityRunner`](https://github.com/childmindresearch/styxsingularity) - This Runner executes commands in an Apptainer/Singularity container.
-- [`styxgraph.GraphRunner`](https://github.com/childmindresearch/styxgraph) - This is a special Runner, capturing information about how commands are connected, returning a diagram.
+- [`styxdocker.DockerRunner`](https://github.com/styx-api/styxdocker) - This Runner executes commands in a Docker container.
+- [`styxsingularity.SingularityRunner`](https://github.com/styx-api/styxsingularity) - This Runner executes commands in an Apptainer/Singularity container.
+- [`styxgraph.GraphRunner`](https://github.com/styx-api/styxgraph) - This is a special Runner, capturing information about how commands are connected, returning a diagram.
 
 ## Setting up a Runner
 

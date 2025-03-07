@@ -1,1 +1,1 @@
-# [The Styx book](https://childmindresearch.github.io/styxbook/)
+# [The Styx book](https://styx-api.github.io/styxbook/)
