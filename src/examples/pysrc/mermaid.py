@@ -1,6 +1,4 @@
-from niwrap import fsl, set_global_runner
-from styxdocker import DockerRunner
-from styxgraph import GraphRunner
+from niwrap import fsl, set_global_runner, DockerRunner, GraphRunner
 import os
 
 def anatomical_preprocessing(input_file):
