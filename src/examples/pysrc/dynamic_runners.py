@@ -1,4 +1,4 @@
-from styxdefs import set_global_runner
+from styxdefs import set_global_runner, LocalRunner
 from styxdocker import DockerRunner
 from styxsingularity import SingularityRunner
 

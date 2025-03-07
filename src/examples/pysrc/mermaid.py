@@ -1,5 +1,4 @@
-from niwrap import fsl
-from styxdefs import set_global_runner
+from niwrap import fsl, set_global_runner
 from styxdocker import DockerRunner
 from styxgraph import GraphRunner
 import os
@@ -34,7 +33,7 @@ def anatomical_preprocessing(input_file):
     return bet_output, seg_output
 
 if __name__ == "__main__":
-    input_file = r"C:\Users\floru\Downloads\T1.nii.gz"#"path/to/your/input/T1w.nii.gz"
+    input_file = "path/to/your/input/T1w.nii.gz"
     output_dir = "my_output"
 
     # Set up the Docker runner

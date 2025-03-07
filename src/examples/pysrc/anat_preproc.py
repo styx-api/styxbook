@@ -1,5 +1,4 @@
-from niwrap import fsl
-from styxdefs import set_global_runner
+from niwrap import fsl, set_global_runner
 from styxdocker import DockerRunner
 import os
 

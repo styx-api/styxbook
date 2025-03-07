@@ -16,6 +16,10 @@ For example, to call FSL `bet`:
 ```Python
 from niwrap import fsl
 
+# # If you want to use Docker:
+# import niwrap
+# niwrap.use_docker()
+
 bet_output = fsl.bet(
     infile="my_file.nii.gz",
     binary_mask=True,
@@ -29,18 +33,6 @@ bet my_file.nii.gz -m
 ```
 
 and stores all available output files for easy access in `bet_output`.
-
-> [!NOTE]
-> *But wait! I dont have that software installed!* - No need to worry: We can set up the Docker integration with just a few lines of code at the top of your script:
->
-> ```Python
-> from styxdefs import set_global_runner
-> from styxdocker import DockerRunner
-> 
-> set_global_runner(DockerRunner())
-> ```
->
-> What exactly this does will be explained in more detail in the next section of this book. For now this just lets Docker handle providing the software package. You will notice that the first execution will be very slow because it needs to download the Docker image.
 
 These can then be used as an input to another Styx wrapper or with any other Python package like `nilearn`:
 
