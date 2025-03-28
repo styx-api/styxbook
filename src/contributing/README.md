@@ -6,8 +6,8 @@ Thank you for your interest in contributing to the Styx ecosystem! This section 
 
 The Styx ecosystem consists of several components that work together:
 
-1. **NiWrap** - A collection of Boutiques descriptors for neuroimaging tools
-2. **Styx Compiler** - Transforms Boutiques descriptors into type-safe language bindings
+1. **NiWrap** - A collection of descriptors for neuroimaging tools
+2. **Styx Compiler** - Transforms descriptors into type-safe language bindings
 3. **Language-specific packages** - The compiled outputs for Python, TypeScript, and R
 4. **Documentation** - The Styx Book that you're reading right now
 
