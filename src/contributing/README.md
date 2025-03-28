@@ -9,15 +9,25 @@ The Styx ecosystem consists of several components that work together:
 1. **NiWrap** - A collection of Boutiques descriptors for neuroimaging tools
 2. **Styx Compiler** - Transforms Boutiques descriptors into type-safe language bindings
 3. **Language-specific packages** - The compiled outputs for Python, TypeScript, and R
+4. **Documentation** - The Styx Book that you're reading right now
 
 ## Guides in this Section
 
 - [Contributing to NiWrap](./contributing_to_niwrap.md) - Learn how to add or improve neuroimaging tool descriptors
 - [Contributing to the Styx compiler](./styx_compiler.md) - Help enhance the core compiler functionality
+- [Contributing to the Book](./book.md) - Improve the documentation you're reading right now
 
 ## Why Contribute?
 
 Your contributions help expand the ecosystem of type-safe neuroimaging tools across multiple programming languages. Whether you're fixing a bug, adding support for a new tool, or improving documentation, your work directly benefits researchers and developers in the neuroimaging community.
+
+We strive to make contributing as accessible as possible, regardless of your technical background:
+
+- **Documentation contributions** are a great way to get started
+- **NiWrap descriptor contributions** are accessible to researchers with basic JSON knowledge
+- **Compiler contributions** welcome those with more programming experience
+
+We value clear, approachable documentation and code that helps make neuroimaging analysis more accessible to all.
 
 ## Getting Help
 
