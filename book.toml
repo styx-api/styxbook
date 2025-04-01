@@ -10,7 +10,11 @@ title = "Styx Book"
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
+[preprocessor.langtabs]
+command = "mdbook-langtabs"
+
 [output]
 
 [output.html]
-additional-js = ["mermaid.min.js", "mermaid-init.js"]
+additional-js = ["mermaid.min.js", "mermaid-init.js", "langtabs.js"]
+additional-css = ["langtabs.css"]
