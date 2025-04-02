@@ -13,8 +13,8 @@ The Styx ecosystem consists of several components that work together:
 
 ## Guides in this Section
 
-- [Contributing to NiWrap](./contributing_to_niwrap.md) - Learn how to add or improve neuroimaging tool descriptors
-- [Contributing to the Styx compiler](./styx_compiler.md) - Help enhance the core compiler functionality
+- [Contributing to NiWrap](./niwrap.md) - Learn how to add or improve neuroimaging tool descriptors
+- [Contributing to the Styx compiler](./styx.md) - Help enhance the core compiler functionality
 - [Contributing to the Book](./book.md) - Improve the documentation you're reading right now
 
 ## Why Contribute?

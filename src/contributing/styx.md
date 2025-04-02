@@ -112,4 +112,4 @@ The Styx compiler is a complex piece of software. If you're having trouble:
 
 While contributing to the Styx compiler requires more technical expertise than contributing to NiWrap descriptors, it's a rewarding way to improve the entire ecosystem. Start with small changes and work your way up to more complex features.
 
-For most users interested in neuroimaging tools, [contributing to NiWrap](./contributing_to_niwrap.md) might be a more accessible starting point.
+For most users interested in neuroimaging tools, [contributing to NiWrap](./niwrap.md) might be a more accessible starting point.
