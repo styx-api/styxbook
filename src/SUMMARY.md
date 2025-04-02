@@ -18,3 +18,10 @@
     - [Example: Generate mermaid graph](./examples/mermaid.md)
     - [Example: Dynamic runners](./examples/dynamic_runners.md)
 - [Boutiques Guide](./boutiques_guide/README.md)
+    - [Basic Structure](./boutiques_guide/basic_structure.md)
+    - [Subcommands](./boutiques_guide/subcommands.md)
+    - [File Handling](./boutiques_guide/file_handling.md)
+    - [Advanced Features](./boutiques_guide/advanced_features.md)
+    - [Troubleshooting](./boutiques_guide/troubleshooting.md)
+    - [Examples](./boutiques_guide/examples.md)
+
