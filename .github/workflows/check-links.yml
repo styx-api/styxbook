@@ -1,0 +1,17 @@
+name: Check dead links
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  md-dead-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - uses: AlexanderDokuchaev/md-dead-link-check@v1.2.0
