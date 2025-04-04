@@ -88,6 +88,7 @@ Optional list-related fields:
 - `list-separator`: Character(s) used to join list values (default is space)
 
 Example with a custom separator:
+
 ```json
 {
   "id": "tags",
@@ -112,6 +113,7 @@ Value keys connect parameters to positions in the command line. In the Styx ecos
 - Match exactly in the `command-line` template
 
 Example:
+
 ```json
 "command-line": "bet [INFILE] [OUTFILE] [OPTIONS]",
 "inputs": [
@@ -191,7 +193,8 @@ Container configurations help ensure reproducibility:
 }
 ```
 
-In the Styx ecosystem, primarily the `type` and `image` fields are used, with Docker as the main container type.
+In the Styx ecosystem, primarily the `type` and `image` fields are used, with Docker as
+the only container type.
 
 ## Cross-References
 

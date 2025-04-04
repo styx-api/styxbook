@@ -111,7 +111,7 @@ If the input is `subject1.nii.gz`, this would produce `subject1_mask.nii.gz` (no
 | `id` | Unique identifier | Yes | `"brain_mask"` |
 | `name` | Human-readable name | Yes | `"Brain Mask Image"` |
 | `description` | Detailed description | No | `"Binary mask of the brain"` |
-| `path-template` | Template for output file path | Yes | `"[OUTPUT_DIR]/[PREFIX]_mask.nii.gz"` |
+| `path-template` | Template for output file path | Yes | `"[PREFIX]_mask.nii.gz"` |
 | `optional` | Whether file might not be produced | No | `true` |
 | `path-template-stripped-extensions` | Extensions to remove from input paths | No | `[".nii.gz", ".nii"]` |
 

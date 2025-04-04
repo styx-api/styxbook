@@ -59,6 +59,7 @@ NiWrap uses separate package configuration files to organize tools by suite:
 ### Endpoint Status Values
 
 The `status` field in each endpoint tracks implementation:
+
 - `"done"`: Descriptor is complete and ready to use
 - `"missing"`: Tool is identified but descriptor not yet created
 - `"ignore"`: Tool should be deliberately excluded from the API
@@ -83,6 +84,7 @@ For tools that output important data to stdout or stderr, the Styx ecosystem ext
 ```
 
 These fields make the command output available as strings in the generated bindings, useful for tools that:
+
 - Output data tables to the terminal
 - Provide processing statistics on stderr
 - Generate simple text outputs without writing files
@@ -219,6 +221,7 @@ Several fields help constrain parameter values:
 When creating or modifying descriptors, use these validation methods:
 
 1. JSON Schema validation:
+
    ```bash
    # In NiWrap repository
    python -m pytest tests/test_descriptors.py::test_descriptor_validity
@@ -226,6 +229,7 @@ When creating or modifying descriptors, use these validation methods:
 
 2. Visual Studio Code validation:
    Add this to `.vscode/settings.json`:
+
    ```json
    {
      "json.schemas": [
@@ -238,6 +242,7 @@ When creating or modifying descriptors, use these validation methods:
    ```
 
 3. Build testing:
+
    ```bash
    # Test if Styx can process your descriptor
    python build.py

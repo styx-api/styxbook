@@ -111,6 +111,7 @@ The most common use of subcommands is to represent different "modes" or "algorit
 ```
 
 In this example:
+
 - The user must choose either the "fast" or "accurate" algorithm
 - Each algorithm has its own specific parameters
 - The "accurate" algorithm produces an additional output file
@@ -392,10 +393,11 @@ This ensures users can only provide valid parameter combinations.
 4. **Consider output files carefully** - each subcommand can have different outputs
 5. **Nest subcommands when it makes logical sense** for the tool's structure
 6. **Use value-choices for fixed option sets** within subcommands
-7. **Add list: true for repeatable elements** when the same subcommand can appear multiple times
+7. **Add `list: true` for repeatable elements** when the same subcommand can appear multiple times
 
 ## Next Steps
 
 Now that you understand subcommands, learn about:
+
 - [File Handling](./file_handling.md) - For detailed input/output file handling
 - [Advanced Features](./advanced_features.md) - For additional capabilities

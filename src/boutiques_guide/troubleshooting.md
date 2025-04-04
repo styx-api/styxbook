@@ -13,6 +13,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: `ERROR: 'name' is a required property`
 
 **Solution**: Ensure all required top-level fields are present:
+
 ```json
 {
   "name": "tool_name",
@@ -29,6 +30,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: `ERROR: 'string' is not of type 'number'`
 
 **Solution**: Check that values match their declared types. For numeric parameters:
+
 ```json
 {
   "id": "threshold",
@@ -42,6 +44,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: `ERROR: 'input-file' does not match pattern '^[0-9,_,a-z,A-Z]*$'`
 
 **Solution**: IDs must contain only alphanumeric characters and underscores:
+
 ```json
 {
   "id": "input_file",  // Not "input-file"
@@ -55,8 +58,10 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 
 **Problem**: Value-key placeholders aren't replaced in the command line.
 
-**Solution**: 
+**Solution**:
+
 1. Ensure the value-key in the parameter matches exactly what's in the command-line:
+
    ```json
    "command-line": "tool [INPUT_FILE]",
    "inputs": [
@@ -74,6 +79,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: Command-line flags aren't included in the generated command.
 
 **Solution**: Make sure you're using the correct fields:
+
 ```json
 {
   "id": "verbose",
@@ -87,6 +93,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: List values aren't formatted as expected in the command.
 
 **Solution**: Use the `list-separator` field to control how values are joined:
+
 ```json
 {
   "id": "coordinates",
@@ -104,6 +111,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: Parameters inside subcommands aren't accessible in the generated bindings.
 
 **Solution**: Check your subcommand structure:
+
 ```json
 {
   "id": "algorithm",
@@ -126,6 +134,7 @@ This guide covers common issues when creating or modifying Boutiques descriptors
 **Problem**: The descriptor doesn't enforce mutually exclusive options.
 
 **Solution**: Instead of using `groups` with `mutually-exclusive`, use subcommands:
+
 ```json
 {
   "id": "mode",
@@ -144,7 +153,8 @@ This creates a proper union type in the generated bindings.
 
 **Problem**: Input files are reported as not found even though they exist.
 
-**Solution**: 
+**Solution**:
+
 1. Make sure you're using `"type": "File"` for input files
 2. Check if paths are relative to the current working directory
 3. For containerized runs, verify file paths are accessible in the container
@@ -154,6 +164,7 @@ This creates a proper union type in the generated bindings.
 **Problem**: Output files appear in unexpected locations.
 
 **Solution**: Check your `path-template` in output-files:
+
 ```json
 "output-files": [
   {
@@ -170,6 +181,7 @@ Ensure all value-keys (`[OUTPUT_DIR]`, `[PREFIX]`) are defined in your inputs.
 **Problem**: Output files have double extensions like `file.nii.gz.nii.gz`.
 
 **Solution**: Use `path-template-stripped-extensions`:
+
 ```json
 "output-files": [
   {
@@ -186,9 +198,11 @@ Ensure all value-keys (`[OUTPUT_DIR]`, `[PREFIX]`) are defined in your inputs.
 
 **Problem**: The container image cannot be pulled or found.
 
-**Solution**: 
+**Solution**:
+
 1. Verify the container exists in the specified registry
 2. Ensure the image name and tag are correct:
+
    ```json
    "container-image": {
      "type": "docker",
@@ -201,6 +215,7 @@ Ensure all value-keys (`[OUTPUT_DIR]`, `[PREFIX]`) are defined in your inputs.
 **Problem**: The tool reports missing dependencies inside the container.
 
 **Solution**: Use a container that includes all required dependencies. You may need to build a custom container with a Dockerfile:
+
 ```dockerfile
 FROM base/image:tag
 RUN apt-get update && apt-get install -y additional-dependency
@@ -212,10 +227,12 @@ RUN apt-get update && apt-get install -y additional-dependency
 
 **Problem**: Confusion between value-keys and command-line-flags.
 
-**Solution**: 
+**Solution**:
+
 - `value-key` is a placeholder in the command-line template
 - `command-line-flag` is the actual flag used in the command (e.g., `-v`, `--verbose`)
 - Both are often needed:
+
   ```json
   {
     "id": "threshold",
@@ -229,15 +246,17 @@ RUN apt-get update && apt-get install -y additional-dependency
 **Problem**: Confusion about how to define input and output files.
 
 **Solution**:
+
 - Input files use `"type": "File"` in the inputs section
 - Output files are defined in the `output-files` section with a `path-template`
-- For parameters that specify output paths, use `"type": "String"` (not "File")
+- For parameters that specify output paths, use `"type": "String"` (not `"File"`)
 
 ### Inconsistent Naming
 
 **Problem**: Similar parameters have inconsistent naming across descriptors.
 
 **Solution**: Follow consistent naming conventions:
+
 ```json
 // Good:
 "id": "input_file"
@@ -255,6 +274,7 @@ RUN apt-get update && apt-get install -y additional-dependency
 ### Validating Descriptors
 
 Always validate your descriptors before using them:
+
 ```bash
 # Using NiWrap validation
 python -m pytest tests/test_descriptors.py::test_descriptor_validity
@@ -266,6 +286,7 @@ python -m pytest tests/test_descriptors.py::test_descriptor_validity
 ### Printing Command Line
 
 When testing, print the full command line to see if it's formed correctly:
+
 ```python
 # Python
 from niwrap.tool import function
@@ -276,6 +297,7 @@ print(cmd)
 ### Using Verbose Mode
 
 Many tools have verbose or debug modes that can help identify issues:
+
 ```json
 {
   "id": "verbose",
