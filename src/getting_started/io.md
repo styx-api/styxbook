@@ -16,7 +16,7 @@ The `outputs` object gives you structured access to generated files through prop
 
 ## Dynamic File Access
 
-Sometimes though, either when a descriptor hasn't been fully implemented or if the output structure is more complex, there may not be an output property available. For these cases, you can use the `outputs.root` property, which always points to the output directory:
+Sometimes, when a descriptor hasn't been fully implemented or if the output structure is more complex, an output property may not be available.. For these cases, you can use the `outputs.root` property, which always points to the output directory:
 
 ```python
 outputs.root / "my_special_file.ext"
