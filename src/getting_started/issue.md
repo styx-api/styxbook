@@ -46,7 +46,7 @@ This includes:
 
 ## Before Reporting
 
-To help us help you faster:
+To get you help faster:
 
 1. **Check existing issues** - Someone might have already reported the same problem
 2. **Include details** - Error messages, code examples, and your environment details are super helpful
