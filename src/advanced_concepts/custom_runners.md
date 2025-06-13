@@ -11,15 +11,16 @@ Custom runners need to implement two main protocols: `Runner` and `Execution`. T
 Your runner class needs to implement just one method:
 
 ```python
-def start_execution(self, metadata: Metadata) -> Execution:
-    """Start an execution for a specific tool.
-    
-    Args:
-        metadata: Information about the tool being executed (name, package, etc.)
+class MyRunner:
+    def start_execution(self, metadata: Metadata) -> Execution:
+        """Start an execution for a specific tool.
         
-    Returns:
-        An Execution object that will handle the actual command execution
-    """
+        Args:
+            metadata: Information about the tool being executed (name, package, etc.)
+
+        Returns:
+            An Execution object that will handle the actual command execution
+        """
 ```
 
 ### The Execution Protocol
@@ -27,17 +28,18 @@ def start_execution(self, metadata: Metadata) -> Execution:
 The `Execution` object does the heavy lifting with four key methods:
 
 ```python
-def input_file(self, host_file: InputPathType, resolve_parent: bool = False, mutable: bool = False) -> str:
-    """Handle input files - return where the command should find them"""
+class MyExecution:
+    def input_file(self, host_file: InputPathType, resolve_parent: bool = False, mutable: bool = False) -> str:
+        """Handle input files - return where the command should find them"""
 
-def output_file(self, local_file: str, optional: bool = False) -> OutputPathType:
-    """Handle output files - return where they'll be stored on the host"""
+    def output_file(self, local_file: str, optional: bool = False) -> OutputPathType:
+        """Handle output files - return where they'll be stored on the host"""
 
-def params(self, params: dict) -> dict:
-    """Process or modify command parameters if needed"""
+    def params(self, params: dict) -> dict:
+        """Process or modify command parameters if needed"""
 
-def run(self, cargs: list[str], handle_stdout=None, handle_stderr=None) -> None:
-    """Actually execute the command"""
+    def run(self, cargs: list[str], handle_stdout=None, handle_stderr=None) -> None:
+        """Actually execute the command"""
 ```
 
 ## Example: Simple Custom Runner
