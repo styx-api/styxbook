@@ -283,4 +283,4 @@ Now that you've run your first commands, you might want to learn about:
 - [I/O: Where are my files?](./io.md) - Understand how file paths work in NiWrap
 - [Tips & best practices](./tips_best_practices.md) - Guidelines for efficient workflows
 
-Ready to see more complex examples? Check out the [Examples](../examples/README.md) section for real-world usage patterns.
+Ready to see more complex examples? Check out the [Examples](../examples/) section for real-world usage patterns.

@@ -35,7 +35,7 @@ NiWrap is a collection of Boutiques descriptors for neuroimaging tools. These de
 
 Boutiques descriptors serve as the "source of truth" for NiWrap, defining how each neuroimaging tool works and how users can interact with it.
 
-> **Note:** For a comprehensive guide to Boutiques concepts and advanced usage, see the [Boutiques Guide](../boutiques_guide/README.md) section of this documentation.
+> **Note:** For a comprehensive guide to Boutiques concepts and advanced usage, see the [Boutiques Guide](../boutiques_guide/) section of this documentation.
 
 Here's a simplified example of a Boutiques descriptor:
 

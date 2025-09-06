@@ -27,13 +27,13 @@ The Styx ecosystem consists of:
 
 ## Getting Started
 
-New to Styx? Head to the [Getting Started](./getting_started/README.md) section to learn the basics.
+New to Styx? Head to the [Getting Started](./getting_started/) section to learn the basics.
 
 Already familiar and want to do more? Check out:
 
-- [Examples](./examples/README.md) for real-world usage patterns
-- [Advanced Concepts](./advanced_concepts/README.md) for custom deployment options
-- [Contributing](./contributing/README.md) to help improve the ecosystem
+- [Examples](./examples/) for real-world usage patterns
+- [Advanced Concepts](./advanced_concepts/) for custom deployment options
+- [Contributing](./contributing/) to help improve the ecosystem
 
 ## When to Use Styx
 
