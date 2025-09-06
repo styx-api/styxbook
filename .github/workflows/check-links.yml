@@ -13,5 +13,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
+      - name: Check for invalid README.md links
+        run: |
+          echo "Checking for direct README.md links in src/ (excluding SUMMARY.md)..."
+
+          # Find all .md files in src/ except SUMMARY.md
+          find src/ -name "*.md" -not -name "SUMMARY.md" -type f | while read -r file; do
+            # Check for links to README.md files
+            if grep -n "\]\(.*README\.md\)" "$file"; then
+              echo "❌ ERROR: Found direct README.md link in $file"
+              echo "   Links to README.md should use directory paths instead (e.g., ./dir/ not ./dir/README.md)"
+              exit 1
+            fi
+          done
+          
+          if [ $? -eq 0 ]; then
+            echo "✅ No invalid README.md links found"
+          fi
+
       - uses: AlexanderDokuchaev/md-dead-link-check@v1.2.0
