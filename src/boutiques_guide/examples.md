@@ -10,15 +10,10 @@ A simple tool with input file, output file, and a few parameters:
 {
   "name": "image_converter",
   "description": "Converts between image formats with optional compression",
-  "tool-version": "1.0.0",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "Example Author",
   "url": "https://example.org/tool",
   "command-line": "convert_image [INPUT] [OUTPUT] [COMPRESSION] [VERBOSE]",
-  "container-image": {
-    "type": "docker",
-    "image": "example/image_converter:1.0.0"
-  },
   "inputs": [
     {
       "id": "input_file",
@@ -46,8 +41,7 @@ A simple tool with input file, output file, and a few parameters:
       "maximum": 9,
       "command-line-flag": "-c",
       "value-key": "[COMPRESSION]",
-      "optional": true,
-      "default-value": 5
+      "optional": true
     },
     {
       "id": "verbose",
@@ -84,15 +78,10 @@ A more complex tool with different algorithms, each having specific parameters:
 {
   "name": "brain_segmentation",
   "description": "Performs brain segmentation using different algorithms",
-  "tool-version": "2.1.0",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "author": "Neuroimaging Lab",
   "url": "https://example.org/brain_segmentation",
   "command-line": "segment_brain [ALGORITHM] [GLOBAL_OPTIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "neuroimaging/segmentation:2.1.0"
-  },
   "inputs": [
     {
       "id": "algorithm",
@@ -199,8 +188,7 @@ A more complex tool with different algorithms, each having specific parameters:
               "maximum": 64,
               "command-line-flag": "--batch",
               "value-key": "[DEEP_OPTIONS]",
-              "optional": true,
-              "default-value": 8
+              "optional": true
             },
             {
               "id": "device",
@@ -210,8 +198,7 @@ A more complex tool with different algorithms, each having specific parameters:
               "command-line-flag": "--device",
               "value-key": "[DEEP_OPTIONS]",
               "value-choices": ["cpu", "cuda"],
-              "optional": true,
-              "default-value": "cpu"
+              "optional": true
             }
           ],
           "output-files": [
@@ -249,8 +236,7 @@ A more complex tool with different algorithms, each having specific parameters:
       "minimum": 1,
       "command-line-flag": "--threads",
       "value-key": "[GLOBAL_OPTIONS]",
-      "optional": true,
-      "default-value": 4
+      "optional": true
     },
     {
       "id": "verbose",
@@ -273,13 +259,8 @@ A tool where a subcommand can be repeated multiple times:
 {
   "name": "image_processor",
   "description": "Apply multiple image processing operations sequentially",
-  "tool-version": "1.2.0",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "process_image [INPUT] [OUTPUT] [OPERATIONS]",
-  "container-image": {
-    "type": "docker",
-    "image": "example/image_processor:1.2.0"
-  },
   "inputs": [
     {
       "id": "input_file",
@@ -356,8 +337,7 @@ Example with deeply nested subcommands:
 {
   "name": "data_analyzer",
   "description": "Analyze data with multiple methods and options",
-  "tool-version": "3.0.0",
-  "schema-version": "0.5",
+  "schema-version": "0.5+styx",
   "command-line": "analyze [MODE] [GLOBAL_OPTIONS]",
   "inputs": [
     {
@@ -421,8 +401,7 @@ Example with deeply nested subcommands:
                       "maximum": 0.1,
                       "command-line-flag": "--alpha",
                       "value-key": "[PARAM_OPTIONS]",
-                      "optional": true,
-                      "default-value": 0.05
+                      "optional": true
                     }
                   ],
                   "output-files": [
@@ -513,8 +492,7 @@ Example with deeply nested subcommands:
               "command-line-flag": "--colormap",
               "value-key": "[VIZ_OPTIONS]",
               "value-choices": ["viridis", "plasma", "inferno", "magma", "cividis"],
-              "optional": true,
-              "default-value": "viridis"
+              "optional": true
             },
             {
               "id": "dpi",
@@ -526,8 +504,7 @@ Example with deeply nested subcommands:
               "maximum": 1200,
               "command-line-flag": "--dpi",
               "value-key": "[VIZ_OPTIONS]",
-              "optional": true,
-              "default-value": 300
+              "optional": true
             }
           ],
           "output-files": [
