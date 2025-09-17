@@ -10,8 +10,7 @@ A Boutiques descriptor is a JSON file with a specific structure. This page expla
 |-------|-------------|---------|
 | `name` | Short name of the tool | `"bet"` |
 | `description` | Detailed description of what the tool does | `"Automated brain extraction tool for FSL"` |
-| `tool-version` | Version of the tool being described | `"6.0.4"` |
-| `schema-version` | Version of the Boutiques schema | `"0.5"` |
+| `schema-version` | Version of the Boutiques schema | `"0.5+styx"` |
 | `command-line` | Template for the command with placeholders | `"bet [INFILE] [MASKFILE] [OPTIONS]"` |
 | `inputs` | Array of input parameters | `[{ "id": "infile", ... }]` |
 
@@ -21,7 +20,6 @@ A Boutiques descriptor is a JSON file with a specific structure. This page expla
 |-------|-------------|---------|
 | `author` | Author of the tool | `"FMRIB Analysis Group, University of Oxford"` |
 | `url` | URL for the tool's documentation | `"https://fsl.fmrib.ox.ac.uk/fsl/fslwiki"` |
-| `container-image` | Container configuration | `{ "type": "docker", "image": "..." }` |
 | `output-files` | Array of output files | `[{ "id": "outfile", ... }]` |
 | `stdout-output` | Capture stdout as an output | `{ "id": "stdout_data", ... }` |
 | `stderr-output` | Capture stderr as an output | `{ "id": "error_log", ... }` |
