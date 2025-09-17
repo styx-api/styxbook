@@ -38,6 +38,8 @@ The following standard Boutiques fields are not currently used in the Styx ecosy
 - `tags`: Categorization tags
 - `error-codes`: Tool-specific error codes
 - `custom`: Custom tool-specific metadata
+- `container-image`: Docker and other container image metadata is managed on a per-package level not per individual descriptor
+- `tool-version`: Tool version is managed on a per-package level not per individual descriptor
 
 ## Input Parameters
 
@@ -53,7 +55,7 @@ Input parameters define the arguments that can be passed to a tool. They're spec
 | `value-key` | Placeholder in command-line template | Yes | `"[INPUT_FILE]"` |
 | `optional` | Whether parameter is required | Yes | `true` |
 | `command-line-flag` | Command-line option prefix | No | `"-i"` |
-| `default-value` | Default value if not specified | No | `"standard.nii.gz"` |
+| `default-value` | Default value if not specified (warning: this is *not* meant to capture tool-defaults but to overrride the default value in generated wrappers. **Rarely** appropriate to use.) | No | `"standard.nii.gz"` |
 | `value-choices` | Array of allowed values | No | `["small", "medium", "large"]` |
 
 ### Parameter Types
@@ -180,21 +182,8 @@ Common output file fields:
 | `name` | Human-readable name | Yes | `"Brain Mask Image"` |
 | `description` | Detailed description | No | `"Binary mask of the brain"` |
 | `path-template` | Template for output file path | Yes | `"[OUTPUT_DIR]/[PREFIX]_mask.nii.gz"` |
+| `path-template-fallback` | Fallback value to use for replacement variables that are optional and not set. | Yes | `"[OUTPUT_DIR]/[PREFIX]_mask.nii.gz"` |
 | `optional` | Whether file might not be produced | No | `true` |
-
-## Container Configuration
-
-Container configurations help ensure reproducibility:
-
-```json
-"container-image": {
-  "type": "docker",
-  "image": "brainlife/fsl:6.0.4-patched2"
-}
-```
-
-In the Styx ecosystem, primarily the `type` and `image` fields are used, with Docker as
-the only container type.
 
 ## Cross-References
 
