@@ -53,7 +53,7 @@ Input parameters define the arguments that can be passed to a tool. They're spec
 | `value-key` | Placeholder in command-line template | Yes | `"[INPUT_FILE]"` |
 | `optional` | Whether parameter is required | Yes | `true` |
 | `command-line-flag` | Command-line option prefix | No | `"-i"` |
-| `default-value` | Default value if not specified (warning: this is *not* meant to capture tool-defaults but to overrride the default value in generated wrappers. **Rarely** appropriate to use.) | No | `"standard.nii.gz"` |
+| `default-value` | Default value if not specified (warning: this is *not* meant to capture tool-defaults but to override the default value in generated wrappers. **Rarely** appropriate to use.) | No | `"standard.nii.gz"` |
 | `value-choices` | Array of allowed values | No | `["small", "medium", "large"]` |
 
 ### Parameter Types
