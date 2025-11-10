@@ -534,4 +534,4 @@ Example with deeply nested subcommands:
 
 ## Real-World Examples
 
-For real-world examples check out the [descriptors in NiWrap](https://github.com/styx-api/niwrap/tree/main/descriptors).
+For real-world examples check out the [descriptors in NiWrap](https://github.com/styx-api/niwrap/tree/main/src).
