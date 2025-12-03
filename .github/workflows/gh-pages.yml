@@ -58,9 +58,18 @@ jobs:
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: 'book'
+          path: "book"
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        id: deployment
+        id: github-deployment
         uses: actions/deploy-pages@v4
+
+      - name: Deploy to Cloudflare Pages
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        id: cloudflare-deployment
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy book/ --project-name=styxbook --branch=main
