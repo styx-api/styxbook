@@ -1,11 +1,8 @@
 [book]
 authors = []
 language = "en"
-multilingual = false
 src = "src"
 title = "Styx Book"
-
-[preprocessor.alerts]
 
 [preprocessor.mermaid]
 command = "mdbook-mermaid"

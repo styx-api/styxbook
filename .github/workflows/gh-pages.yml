@@ -19,7 +19,7 @@ jobs:
 
       # Use MDBOOK_VERSION environment variable for better control
       - name: Set mdbook version
-        run: echo "MDBOOK_VERSION=0.4.52" >> $GITHUB_ENV
+        run: echo "MDBOOK_VERSION=0.5.1" >> $GITHUB_ENV
 
       # Directly download prebuilt binaries instead of using cargo install
       - name: Install mdBook
@@ -38,14 +38,11 @@ jobs:
       # Install plugins only if not in cache
       - name: Install mdbook plugins
         run: |
-          if ! command -v mdbook-alerts &> /dev/null; then
-            cargo install mdbook-alerts --version 0.7.0
-          fi
           if ! command -v mdbook-mermaid &> /dev/null; then
-            cargo install mdbook-mermaid --version 0.15.0
+            cargo install mdbook-mermaid --version 0.17.0
           fi
           if ! command -v mdbook-langtabs &> /dev/null; then
-            cargo install mdbook-langtabs --version 0.1.1
+            cargo install mdbook-langtabs --version 0.2.0
           fi
 
       # Setup and build
