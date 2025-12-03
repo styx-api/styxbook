@@ -13,5 +13,10 @@ command = "mdbook-langtabs"
 [output]
 
 [output.html]
-additional-js = ["mermaid.min.js", "mermaid-init.js", "langtabs.js"]
+additional-js = [
+    "mermaid.min.js",
+    "mermaid-init.js",
+    "langtabs.js",
+    "cloudflare.js",
+]
 additional-css = ["langtabs.css"]
