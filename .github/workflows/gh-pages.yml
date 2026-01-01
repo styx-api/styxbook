@@ -30,7 +30,7 @@ jobs:
 
       # Cache the mdbook plugins to avoid rebuilding
       - name: Cache mdbook plugins
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-mdbook-plugins-${{ hashFiles('**/book.toml') }}
