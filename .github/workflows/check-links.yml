@@ -32,4 +32,4 @@ jobs:
             echo "✅ No invalid README.md links found"
           fi
 
-      - uses: AlexanderDokuchaev/md-dead-link-check@v1.2.0
+      - uses: AlexanderDokuchaev/md-dead-link-check@v1.3.0
