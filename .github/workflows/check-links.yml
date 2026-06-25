@@ -10,7 +10,7 @@ jobs:
   md-dead-link-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -32,4 +32,4 @@ jobs:
             echo "✅ No invalid README.md links found"
           fi
 
-      - uses: AlexanderDokuchaev/md-dead-link-check@v1.2.0
+      - uses: AlexanderDokuchaev/md-dead-link-check@v1.3.0
