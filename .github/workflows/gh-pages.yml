@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       # Use MDBOOK_VERSION environment variable for better control
       - name: Set mdbook version
-        run: echo "MDBOOK_VERSION=0.5.1" >> $GITHUB_ENV
+        run: echo "MDBOOK_VERSION=0.5.3" >> $GITHUB_ENV
 
       # Directly download prebuilt binaries instead of using cargo install
       - name: Install mdBook
@@ -30,7 +30,7 @@ jobs:
 
       # Cache the mdbook plugins to avoid rebuilding
       - name: Cache mdbook plugins
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cargo/bin
           key: ${{ runner.os }}-mdbook-plugins-${{ hashFiles('**/book.toml') }}
@@ -47,7 +47,7 @@ jobs:
 
       # Setup and build
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Build documentation
         run: |
@@ -56,19 +56,19 @@ jobs:
           touch ./book/.nojekyll
 
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "book"
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         id: github-deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Deploy to Cloudflare Pages
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         id: cloudflare-deployment
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
