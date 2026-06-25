@@ -255,6 +255,109 @@ Subcommands can be nested multiple levels deep to represent complex tool hierarc
 }
 ```
 
+## Ordered Optional Positionals (Optional Cascades)
+
+Some tools take a comma-separated list of positional fields where the trailing fields are optional **but ordered**: you can supply a prefix of the list, but each field requires the one before it. ANTs is full of these. For example, `antsApplyTransforms` accepts an output spec in any of these forms:
+
+```
+-o [prefix]
+-o [prefix,warped]
+-o [prefix,warped,inverse]
+```
+
+Here `warped` is optional, and `inverse` is optional too, but `inverse` only makes sense once `warped` is present. An empty middle slot like `[prefix,,inverse]` is never valid.
+
+It's tempting to model `warped` and `inverse` as two independent `"optional": true` positionals. That doesn't work: it loses the ordering, and a user who sets `inverse` but not `warped` would render the broken `[prefix,,inverse]`. Styx descriptors have no cross-input "requires" dependency to forbid that combination directly.
+
+Instead, let the **nesting itself** enforce the order. Wrap each optional field in an optional subcommand nested inside the previous one, so a field is only reachable through its parent:
+
+- `prefix` — a required positional.
+- An optional subcommand holding `warped` (and the level below it), whose command-line begins with the `,` delimiter.
+- An optional subcommand holding `inverse`, again beginning with `,`.
+
+Because an unset optional subcommand renders to nothing, its leading comma and everything after it simply disappear. Presence then cascades correctly: `inverse` can't appear without `warped`, which can't appear without `prefix`.
+
+```json
+{
+  "id": "output",
+  "name": "Output spec",
+  "description": "Output transform/image spec: [prefix,warped,inverse]",
+  "command-line-flag": "-o",
+  "value-key": "[OUTPUT]",
+  "optional": true,
+  "type": {
+    "id": "output_bracket",
+    "command-line": "[[OUTPUT_PREFIX][REST1]]",
+    "inputs": [
+      {
+        "id": "output_prefix",
+        "name": "Output prefix",
+        "description": "Prefix for the output files",
+        "type": "String",
+        "value-key": "[OUTPUT_PREFIX]",
+        "optional": false
+      },
+      {
+        "id": "rest1",
+        "name": "Warped image (optional)",
+        "value-key": "[REST1]",
+        "optional": true,
+        "type": {
+          "id": "warped_group",
+          "command-line": ",[WARPED][REST2]",
+          "inputs": [
+            {
+              "id": "warped",
+              "name": "Warped image",
+              "description": "Filename for the warped output image",
+              "type": "String",
+              "value-key": "[WARPED]",
+              "optional": false
+            },
+            {
+              "id": "rest2",
+              "name": "Inverse warped image (optional)",
+              "value-key": "[REST2]",
+              "optional": true,
+              "type": {
+                "id": "inverse_group",
+                "command-line": ",[INVERSE]",
+                "inputs": [
+                  {
+                    "id": "inverse",
+                    "name": "Inverse warped image",
+                    "description": "Filename for the inverse warped output image",
+                    "type": "String",
+                    "value-key": "[INVERSE]",
+                    "optional": false
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+Two details make this work:
+
+- The **outer** subcommand's command-line carries the literal brackets the tool expects, here `[[OUTPUT_PREFIX][REST1]]`.
+- Each **nested** group's command-line begins with its own `,` delimiter, e.g. `,[WARPED][REST2]`. When the group is unset, that leading comma vanishes along with it.
+
+This produces exactly the valid forms, and only those:
+
+| Inputs set | Rendered command line |
+| --- | --- |
+| `prefix` only | `-o [prefix]` |
+| `prefix` + `warped` | `-o [prefix,warped]` |
+| all three | `-o [prefix,warped,inverse]` |
+| `inverse` without `warped` | impossible — `inverse` is only reachable through `warped`'s group |
+
+For a two-field case like `--transform [file,useInverse]`, use the same shape with one fewer level of nesting.
+
 ## Real-World Example: MRTrix3 5ttgen
 
 Here's a simplified version of how MRTrix3's 5ttgen tool is described with subcommands:
