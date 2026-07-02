@@ -18,6 +18,7 @@
   - [Example: Generate mermaid graph](./examples/mermaid.md)
   - [Example: Dynamic runners](./examples/dynamic_runners.md)
   - [Example: Podman runner](./examples/podman.md)
+  - [Example: Workflow engines](./examples/workflow_engines.md)
 - [Boutiques Guide](./boutiques_guide/README.md)
   - [Basic Structure](./boutiques_guide/basic_structure.md)
   - [Subcommands](./boutiques_guide/subcommands.md)
